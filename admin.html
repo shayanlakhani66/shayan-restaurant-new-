@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Shayan Restaurant</title>
+  <meta name="description" content="Manage menu items, food categories, pricing, and restaurant settings." />
+  <meta name="theme-color" content="#dc2626" />
+
+  <!-- Auth Guard Script: Immediate verification before rendering -->
+  <script>
+    (function() {
+      const isAuth = sessionStorage.getItem('shayan_admin_auth') === 'true' || localStorage.getItem('shayan_admin_auth') === 'true';
+      if (!isAuth) {
+        window.location.replace('admin-login.html');
+      }
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="admin-style.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Main Dashboard Wrapper -->
+  <div class="admin-wrapper" id="adminWrapper">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-header">
+        <a href="admin.html" class="sidebar-brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <div class="brand-info">
+            <span class="brand-name">Shayan</span>
+            <span class="brand-role">Admin Control</span>
+          </div>
+        </a>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Current Admin User Card -->
+      <div class="sidebar-user-card">
+        <div class="user-avatar-wrap">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Admin Avatar" class="sidebar-avatar" />
+          <span class="status-online" title="Online"></span>
+        </div>
+        <div class="sidebar-user-details">
+          <h4 class="sidebar-user-name">Shayan Lakhani</h4>
+          <span class="sidebar-user-badge">Restaurant Owner</span>
+        </div>
+      </div>
+
+      <!-- Sidebar Navigation Menu -->
+      <nav class="sidebar-nav" aria-label="Admin Navigation">
+        <ul class="sidebar-menu">
+          <li class="menu-item">
+            <button class="nav-tab-btn active" data-target="dashboardView">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Dashboard</span>
+            </button>
+          </li>
+          <li class="menu-item">
+            <button class="nav-tab-btn" data-target="menuMgmtView">
+              <i class="fa-solid fa-utensils"></i>
+              <span>Menu Items</span>
+              <span class="nav-badge" id="sidebarDishCount">0</span>
+            </button>
+          </li>
+          <li class="menu-item">
+            <button class="nav-tab-btn" data-target="categoriesView">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>Categories</span>
+              <span class="nav-badge" id="sidebarCategoryCount">0</span>
+            </button>
+          </li>
+          <li class="menu-item">
+            <button class="nav-tab-btn" data-target="settingsView">
+              <i class="fa-solid fa-sliders"></i>
+              <span>Restaurant Settings</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <!-- Quick Links & Actions -->
+        <ul class="sidebar-menu secondary-menu">
+          <li class="menu-item">
+            <a href="index.html" target="_blank" class="nav-link-btn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>View Live Website</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <button class="nav-tab-btn btn-logout" id="logoutBtn">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>Sign Out</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <span class="system-status">
+          <i class="fa-solid fa-circle-check"></i> LocalStorage Synced
+        </span>
+        <span class="version-text">v2.4 Red &amp; White Edition</span>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR BACKDROP FOR MOBILE -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- MAIN DASHBOARD CONTENT AREA -->
+    <main class="admin-main">
+      
+      <!-- Top Navigation Header Bar -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle Sidebar Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="page-title-wrap">
+            <h1 class="current-page-title" id="pageTitle">Admin Dashboard</h1>
+            <span class="breadcrumb-text">Shayan Restaurant &gt; Management</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Live Date & Clock -->
+          <div class="topbar-clock" id="topbarClock">
+            <i class="fa-regular fa-clock"></i>
+            <span id="liveTimeStr">--:-- --</span>
+          </div>
+
+          <!-- Quick Visit Site Button -->
+          <a href="index.html" target="_blank" class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-globe"></i>
+            <span>Live Site</span>
+          </a>
+
+          <!-- Quick Add Dish Button -->
+          <button class="btn btn-primary btn-sm" id="quickAddDishBtn">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Dish</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- VIEW 1: DASHBOARD OVERVIEW -->
+      <section class="admin-view active" id="dashboardView">
+        <div class="view-header">
+          <div>
+            <h2>Dashboard Overview</h2>
+            <p>Real-time summary of your restaurant menu, active categories, and settings.</p>
+          </div>
+          <div class="sync-indicator">
+            <span class="pulse-dot"></span> Live LocalStorage Sync Active
+          </div>
+        </div>
+
+        <!-- Metrics KPI Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon red-icon">
+              <i class="fa-solid fa-bowl-food"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Total Menu Items</span>
+              <h3 class="metric-value" id="kpiTotalDishes">0</h3>
+              <span class="metric-subtext"><i class="fa-solid fa-check"></i> Available on Website</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon rose-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Active Categories</span>
+              <h3 class="metric-value" id="kpiTotalCategories">0</h3>
+              <span class="metric-subtext"><i class="fa-solid fa-filter"></i> Interactive Filter Tabs</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon dark-red-icon">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Best Seller Special</span>
+              <h3 class="metric-value font-sm" id="kpiTopDish">Royal Biryani</h3>
+              <span class="metric-subtext"><i class="fa-solid fa-fire"></i> Most Ordered Item</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon green-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">WhatsApp Ordering</span>
+              <h3 class="metric-value font-sm" id="kpiWhatsAppNum">03092273955</h3>
+              <span class="metric-subtext"><i class="fa-solid fa-bolt"></i> 1-Click Orders Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions Row -->
+        <div class="quick-actions-bar">
+          <h3>Quick Actions</h3>
+          <div class="quick-actions-btns">
+            <button class="btn btn-primary" id="dashAddDishBtn">
+              <i class="fa-solid fa-plus"></i> Add New Dish
+            </button>
+            <button class="btn btn-outline" id="dashAddCategoryBtn">
+              <i class="fa-solid fa-folder-plus"></i> Add Category
+            </button>
+            <button class="btn btn-outline" id="dashGoSettingsBtn">
+              <i class="fa-solid fa-sliders"></i> Update Settings
+            </button>
+            <button class="btn btn-outline" id="resetDefaultDataBtn" title="Reset all data to default menu">
+              <i class="fa-solid fa-rotate-left"></i> Restore Defaults
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Dishes Table Preview -->
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <div>
+              <h3>Recently Added Menu Items</h3>
+              <p>Latest additions to your restaurant menu.</p>
+            </div>
+            <button class="btn btn-outline btn-sm" id="viewAllDishesLink">
+              <span>View Full Menu</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table" id="recentDishesTable">
+              <thead>
+                <tr>
+                  <th>Dish</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Badge</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="recentDishesTbody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Architecture & Production Security Callout -->
+        <div class="architecture-callout">
+          <div class="callout-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="callout-content">
+            <h4>Production Deployment Architecture Note</h4>
+            <p>
+              This demonstration uses <strong>LocalStorage</strong> to allow you to add, edit, and delete dishes and update settings without setting up an external database. For a production deployment, replace client-side LocalStorage with a secure REST/GraphQL API (Node.js/Python), PostgreSQL/MongoDB database, JWT-based authentication, and AWS S3/Cloudinary for cloud image hosting.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: MENU ITEMS MANAGEMENT -->
+      <section class="admin-view" id="menuMgmtView">
+        <div class="view-header">
+          <div>
+            <h2>Menu Management</h2>
+            <p>Add, edit, search, filter, and delete dishes on your restaurant menu.</p>
+          </div>
+          <button class="btn btn-primary" id="openAddDishModalBtn">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add New Dish</span>
+          </button>
+        </div>
+
+        <!-- Search, Filter & Sort Toolbar -->
+        <div class="mgmt-toolbar">
+          <!-- Search Box -->
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="adminDishSearch" placeholder="Search dishes by name or description..." />
+            <button class="clear-btn" id="clearAdminSearch" style="display: none;">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="filter-dropdown-wrap">
+            <label for="adminCategoryFilter"><i class="fa-solid fa-filter"></i> Category:</label>
+            <select id="adminCategoryFilter">
+              <option value="all">All Categories</option>
+              <!-- Dynamic Category Options -->
+            </select>
+          </div>
+
+          <!-- Sort Order -->
+          <div class="filter-dropdown-wrap">
+            <label for="adminSortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort:</label>
+            <select id="adminSortSelect">
+              <option value="newest">Newest First</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <span class="table-count-label" id="adminDishCountLabel">Showing 0 dishes</span>
+            <span class="table-tip"><i class="fa-solid fa-circle-info"></i> Changes sync immediately to live website</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 80px;">Image</th>
+                  <th>Dish Name</th>
+                  <th>Category</th>
+                  <th>Price (PKR)</th>
+                  <th>Badges &amp; Tags</th>
+                  <th style="width: 140px; text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminDishesTbody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state" id="dishesEmptyState" style="display: none;">
+            <div class="empty-icon"><i class="fa-solid fa-utensils"></i></div>
+            <h3>No menu items found</h3>
+            <p>Try adjusting your search query or add a new dish.</p>
+            <button class="btn btn-primary btn-sm" id="emptyAddDishBtn">
+              <i class="fa-solid fa-plus"></i> Add New Dish
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: CATEGORY MANAGEMENT -->
+      <section class="admin-view" id="categoriesView">
+        <div class="view-header">
+          <div>
+            <h2>Food Category Management</h2>
+            <p>Manage the categories that organize your menu on the website.</p>
+          </div>
+          <button class="btn btn-primary" id="openAddCategoryModalBtn">
+            <i class="fa-solid fa-folder-plus"></i>
+            <span>Add New Category</span>
+          </button>
+        </div>
+
+        <div class="categories-grid" id="adminCategoriesGrid">
+          <!-- Dynamic category cards populated by JS -->
+        </div>
+      </section>
+
+      <!-- VIEW 4: RESTAURANT SETTINGS -->
+      <section class="admin-view" id="settingsView">
+        <div class="view-header">
+          <div>
+            <h2>Restaurant Information &amp; Settings</h2>
+            <p>Update contact information, business hours, and branding across the website.</p>
+          </div>
+        </div>
+
+        <div class="settings-form-wrapper">
+          <form id="restaurantSettingsForm" class="panel-card settings-card" novalidate>
+            <div class="settings-section-title">
+              <i class="fa-solid fa-store"></i> General Branding
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="settingRestName">Restaurant Name <span class="req">*</span></label>
+                <input type="text" id="settingRestName" class="form-input" required />
+              </div>
+              <div class="form-group">
+                <label for="settingTagline">Restaurant Tagline</label>
+                <input type="text" id="settingTagline" class="form-input" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="settingDescription">Short Description / Heritage Story</label>
+              <textarea id="settingDescription" class="form-input" rows="3"></textarea>
+            </div>
+
+            <div class="settings-section-title mt-4">
+              <i class="fa-solid fa-address-book"></i> Contact &amp; Ordering Information
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="settingWhatsApp">WhatsApp Ordering Number <span class="req">*</span></label>
+                <div class="input-icon-wrap">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <input type="text" id="settingWhatsApp" class="form-input pl-icon" placeholder="03092273955" required />
+                </div>
+                <small class="field-hint">Used for 1-click WhatsApp orders and floating button.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="settingEmail">Official Email Address <span class="req">*</span></label>
+                <div class="input-icon-wrap">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" id="settingEmail" class="form-input pl-icon" placeholder="shayanlakhani66@gmail.com" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="settingHours">Opening Hours Display <span class="req">*</span></label>
+                <input type="text" id="settingHours" class="form-input" placeholder="Monday – Sunday: 12:00 PM – 12:00 AM" required />
+              </div>
+
+              <div class="form-group">
+                <label for="settingAddress">Restaurant Location / Address</label>
+                <input type="text" id="settingAddress" class="form-input" placeholder="Main Commercial Avenue, Food Street District" />
+              </div>
+            </div>
+
+            <div class="form-actions mt-4">
+              <button type="submit" class="btn btn-primary btn-lg" id="saveSettingsBtn">
+                <i class="fa-solid fa-floppy-disk"></i>
+                <span>Save &amp; Update Website</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- =========================================================================
+       MODALS
+       ========================================================================= -->
+
+  <!-- 1. ADD / EDIT DISH MODAL -->
+  <div class="admin-modal" id="dishModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-overlay" id="dishModalOverlay"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="dishModalTitle">Add New Dish</h3>
+        <button class="modal-close-btn" id="closeDishModalBtn" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="dishForm" class="modal-body" novalidate>
+        <input type="hidden" id="dishEditId" value="" />
+
+        <div class="form-grid-2">
+          <!-- Dish Name -->
+          <div class="form-group">
+            <label for="dishNameInput">Dish Name <span class="req">*</span></label>
+            <input type="text" id="dishNameInput" class="form-input" placeholder="e.g. Royal Chicken Biryani" required />
+            <span class="field-error" id="dishNameError"></span>
+          </div>
+
+          <!-- Category -->
+          <div class="form-group">
+            <label for="dishCategoryInput">Category <span class="req">*</span></label>
+            <select id="dishCategoryInput" class="form-input" required>
+              <!-- Dynamic Categories -->
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <!-- Price -->
+          <div class="form-group">
+            <label for="dishPriceInput">Price in PKR (Rs.) <span class="req">*</span></label>
+            <input type="number" id="dishPriceInput" class="form-input" placeholder="e.g. 650" min="1" required />
+            <span class="field-error" id="dishPriceError"></span>
+          </div>
+
+          <!-- Badge -->
+          <div class="form-group">
+            <label for="dishBadgeInput">Highlight Badge</label>
+            <select id="dishBadgeInput" class="form-input">
+              <option value="">None</option>
+              <option value="Best Seller">Best Seller</option>
+              <option value="Chef's Choice">Chef's Choice</option>
+              <option value="Popular">Popular</option>
+              <option value="Royal Feast">Royal Feast</option>
+              <option value="Must Try">Must Try</option>
+              <option value="Crispy">Crispy</option>
+              <option value="Fresh">Fresh</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Image Upload & Preview Section -->
+        <div class="form-group">
+          <label>Dish Image <span class="req">*</span></label>
+          
+          <div class="image-source-tabs">
+            <button type="button" class="img-tab-btn active" id="tabUploadImg">
+              <i class="fa-solid fa-upload"></i> Upload Image File
+            </button>
+            <button type="button" class="img-tab-btn" id="tabUrlImg">
+              <i class="fa-solid fa-link"></i> Use Image URL
+            </button>
+          </div>
+
+          <!-- File Upload Zone -->
+          <div class="file-upload-zone" id="fileUploadZone">
+            <input type="file" id="dishFileInput" accept="image/*" class="file-input-hidden" />
+            <div class="upload-prompt" id="uploadPrompt">
+              <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+              <p><strong>Click to browse</strong> or drag and drop an image file here</p>
+              <span>PNG, JPG, WEBP up to 5MB</span>
+            </div>
+          </div>
+
+          <!-- URL Input Zone -->
+          <div class="url-input-zone" id="urlInputZone" style="display: none;">
+            <input type="url" id="dishUrlInput" class="form-input" placeholder="https://images.unsplash.com/..." />
+          </div>
+
+          <!-- Image Preview Container -->
+          <div class="image-preview-box" id="imagePreviewBox" style="display: none;">
+            <img src="" alt="Dish Preview" id="dishPreviewImg" />
+            <button type="button" class="remove-preview-btn" id="removePreviewBtn" title="Remove image">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+
+          <span class="field-error" id="dishImageError"></span>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="dishDescInput">Description / Ingredients <span class="req">*</span></label>
+          <textarea id="dishDescInput" class="form-input" rows="3" placeholder="Describe the flavors, spices, and ingredients..." required></textarea>
+          <span class="field-error" id="dishDescError"></span>
+        </div>
+
+        <!-- Dietary Checkboxes -->
+        <div class="dietary-checkboxes">
+          <label class="check-label">
+            <input type="checkbox" id="dishIsSpicy" />
+            <span><i class="fa-solid fa-pepper-hot" style="color: #dc2626;"></i> Spicy Item</span>
+          </label>
+          <label class="check-label">
+            <input type="checkbox" id="dishIsVeg" />
+            <span><i class="fa-solid fa-leaf" style="color: #10b981;"></i> Vegetarian</span>
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelDishBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveDishBtn">
+            <i class="fa-solid fa-check"></i>
+            <span>Save Dish</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. ADD / EDIT CATEGORY MODAL -->
+  <div class="admin-modal" id="categoryModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-overlay" id="categoryModalOverlay"></div>
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <h3 class="modal-title" id="categoryModalTitle">Add New Category</h3>
+        <button class="modal-close-btn" id="closeCategoryModalBtn" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="categoryForm" class="modal-body" novalidate>
+        <input type="hidden" id="catEditSlug" value="" />
+
+        <div class="form-group">
+          <label for="catNameInput">Category Name <span class="req">*</span></label>
+          <input type="text" id="catNameInput" class="form-input" placeholder="e.g. Soups &amp; Starters" required />
+          <span class="field-error" id="catNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="catIconInput">Icon (FontAwesome Class or Emoji)</label>
+          <input type="text" id="catIconInput" class="form-input" placeholder="fa-bowl-rice or 🍲" />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelCategoryBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveCategoryBtn">
+            <i class="fa-solid fa-check"></i> Save Category
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. DELETE CONFIRMATION MODAL -->
+  <div class="admin-modal" id="deleteConfirmModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-overlay" id="deleteModalOverlay"></div>
+    <div class="modal-dialog modal-sm text-center">
+      <div class="delete-icon-wrap">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3 class="modal-title mt-2" id="deleteModalTitle">Confirm Delete</h3>
+      <p class="modal-subtext mt-1" id="deleteModalMessage">
+        Are you sure you want to delete this menu item?
+      </p>
+
+      <div class="modal-footer justify-center mt-3">
+        <button type="button" class="btn btn-outline" id="cancelDeleteBtn">Cancel</button>
+        <button type="button" class="btn btn-primary btn-danger" id="confirmDeleteBtn">
+          <i class="fa-solid fa-trash"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="admin-toast" id="adminToast" role="alert" aria-live="assertive">
+    <div class="toast-icon" id="adminToastIcon"><i class="fa-solid fa-check"></i></div>
+    <div class="toast-text" id="adminToastText">Action completed successfully!</div>
+  </div>
+
+  <!-- Admin JavaScript Script File -->
+  <script src="admin-script.js"></script>
+</body>
+</html>

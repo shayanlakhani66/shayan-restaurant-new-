@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | Shayan Restaurant Management</title>
+  <meta name="description" content="Secure administrative access for Shayan Restaurant menu and settings management." />
+  <meta name="theme-color" content="#dc2626" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --color-primary: #dc2626;
+      --color-primary-light: #ef4444;
+      --color-primary-dark: #b91c1c;
+      --color-primary-soft: #fef2f2;
+      --color-primary-tint: #fee2e2;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border-subtle: #e2e8f0;
+      --border-red: rgba(220, 38, 38, 0.25);
+      --shadow-lg: 0 20px 45px rgba(220, 38, 38, 0.12), 0 8px 20px rgba(0, 0, 0, 0.06);
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: radial-gradient(circle at top right, #fee2e2 0%, #ffffff 50%, #f8fafc 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 440px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .back-to-site {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: color 0.2s ease;
+    }
+
+    .back-to-site:hover {
+      color: var(--color-primary);
+    }
+
+    .login-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ef4444, #dc2626, #b91c1c);
+    }
+
+    .brand-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon-box {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 18px rgba(220, 38, 38, 0.35);
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: #dc2626;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Demo Helper Badge */
+    .demo-helper-badge {
+      background: var(--color-primary-soft);
+      border: 1px dashed var(--border-red);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .demo-creds {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .btn-autofill {
+      background: #ffffff;
+      border: 1px solid var(--border-red);
+      color: var(--color-primary);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-autofill:hover {
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 13px 42px 13px 40px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background-color: #f8fafc;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--color-primary);
+      background-color: #ffffff;
+      box-shadow: 0 0 12px rgba(220, 38, 38, 0.15);
+    }
+
+    .toggle-pwd-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px;
+    }
+
+    .toggle-pwd-btn:hover {
+      color: var(--color-primary);
+    }
+
+    .form-extra {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .remember-me input {
+      accent-color: var(--color-primary);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-login:hover {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(220, 38, 38, 0.45);
+    }
+
+    .alert-box {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .alert-error {
+      background-color: #fef2f2;
+      border: 1px solid #f87171;
+      color: #991b1b;
+    }
+
+    .alert-success {
+      background-color: #ecfdf5;
+      border: 1px solid #34d399;
+      color: #065f46;
+    }
+
+    .security-notice {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .security-notice i {
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <a href="index.html" class="back-to-site">
+      <i class="fa-solid fa-arrow-left"></i> Back to Main Restaurant
+    </a>
+
+    <div class="login-card">
+      <div class="brand-header">
+        <div class="logo-icon-box">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h1 class="brand-title">Shayan Restaurant</h1>
+        <div class="brand-subtitle">Admin Management Portal</div>
+      </div>
+
+      <!-- Demo Credentials Quick Helper -->
+      <div class="demo-helper-badge">
+        <div>
+          <span>Demo: </span>
+          <span class="demo-creds">admin</span> / <span class="demo-creds">1234</span>
+        </div>
+        <button type="button" class="btn-autofill" id="autoFillBtn">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Auto Fill
+        </button>
+      </div>
+
+      <!-- Alert Box -->
+      <div class="alert-box alert-error" id="loginAlert">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="alertMsg">Invalid credentials</span>
+      </div>
+
+      <!-- Login Form -->
+      <form id="adminLoginForm" novalidate>
+        <div class="form-group">
+          <label for="adminUsername">Username</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input type="text" id="adminUsername" class="form-input" placeholder="Enter username (admin)" required autocomplete="username" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="adminPassword">Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="adminPassword" class="form-input" placeholder="Enter password (1234)" required autocomplete="current-password" />
+            <button type="button" class="toggle-pwd-btn" id="togglePwdBtn" aria-label="Toggle password visibility">
+              <i class="fa-regular fa-eye" id="togglePwdIcon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-extra">
+          <label class="remember-me">
+            <input type="checkbox" id="rememberMe" checked />
+            <span>Remember this device</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-login" id="loginSubmitBtn">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Secure Sign In</span>
+        </button>
+      </form>
+
+      <div class="security-notice">
+        <i class="fa-solid fa-lock"></i> Client-Side Session Demo. For production, backend JWT/OAuth with hashed passwords is required.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Authentication Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check if already authenticated
+      if (sessionStorage.getItem('shayan_admin_auth') === 'true' || localStorage.getItem('shayan_admin_auth') === 'true') {
+        window.location.href = 'admin.html';
+        return;
+      }
+
+      const loginForm = document.getElementById('adminLoginForm');
+      const usernameInput = document.getElementById('adminUsername');
+      const passwordInput = document.getElementById('adminPassword');
+      const rememberMeInput = document.getElementById('rememberMe');
+      const loginAlert = document.getElementById('loginAlert');
+      const alertMsg = document.getElementById('alertMsg');
+      const autoFillBtn = document.getElementById('autoFillBtn');
+      const togglePwdBtn = document.getElementById('togglePwdBtn');
+      const togglePwdIcon = document.getElementById('togglePwdIcon');
+
+      // Auto Fill Demo Credentials
+      if (autoFillBtn) {
+        autoFillBtn.addEventListener('click', () => {
+          usernameInput.value = 'admin';
+          passwordInput.value = '1234';
+          loginAlert.style.display = 'none';
+        });
+      }
+
+      // Toggle Password Visibility
+      if (togglePwdBtn) {
+        togglePwdBtn.addEventListener('click', () => {
+          const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+          passwordInput.setAttribute('type', type);
+          togglePwdIcon.className = type === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+        });
+      }
+
+      // Handle Submit
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        // Sample credentials verification
+        if (username === 'admin' && password === '1234') {
+          // Success
+          loginAlert.className = 'alert-box alert-success';
+          loginAlert.innerHTML = '<i class="fa-solid fa-circle-check"></i> <span>Login successful! Redirecting to Dashboard...</span>';
+          loginAlert.style.display = 'flex';
+
+          const authPayload = {
+            authenticated: true,
+            user: 'Shayan Admin',
+            role: 'Owner',
+            loginTime: new Date().toISOString()
+          };
+
+          if (rememberMeInput.checked) {
+            localStorage.setItem('shayan_admin_auth', 'true');
+            localStorage.setItem('shayan_admin_user', JSON.stringify(authPayload));
+          } else {
+            sessionStorage.setItem('shayan_admin_auth', 'true');
+            sessionStorage.setItem('shayan_admin_user', JSON.stringify(authPayload));
+          }
+
+          setTimeout(() => {
+            window.location.href = 'admin.html';
+          }, 800);
+        } else {
+          // Failed
+          loginAlert.className = 'alert-box alert-error';
+          loginAlert.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> <span>Invalid username or password. Please use <strong>admin / 1234</strong>.</span>';
+          loginAlert.style.display = 'flex';
+          passwordInput.value = '';
+          passwordInput.focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shayan Restaurant | Premium Dining &amp; Authentic Flavors</title>
+  <meta name="description" content="Welcome to Shayan Restaurant. Experience royal Pakistani delicacies, sizzling BBQ, gourmet burgers, artisan pizzas, and desserts. Dine-in, Takeaway &amp; Fast WhatsApp Delivery." />
+  <meta name="keywords" content="Shayan Restaurant, Pakistani food, Biryani, Karahi, BBQ, Burgers, Pizza, Fast Food, WhatsApp Delivery, Best Restaurant" />
+  <meta name="author" content="Shayan Restaurant" />
+  <meta name="theme-color" content="#dc2626" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Shayan Restaurant | Royal Flavors &amp; Premium Dining" />
+  <meta property="og:description" content="Delicious authentic Pakistani cuisine, sizzling BBQ, gourmet fast food &amp; prompt WhatsApp delivery." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Alex+Brush&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-container">
+      <div class="top-bar-left">
+        <span class="live-status-pill" id="liveStatusBadge">
+          <span class="status-dot"></span>
+          <span id="statusText">Checking Hours...</span>
+        </span>
+        <span class="top-bar-info">
+          <i class="fa-regular fa-clock"></i> Mon – Sun: 12:00 PM – 12:00 AM
+        </span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+923092273955" class="top-bar-link">
+          <i class="fa-solid fa-phone"></i> 03092273955
+        </a>
+        <a href="mailto:shayanlakhani66@gmail.com" class="top-bar-link">
+          <i class="fa-solid fa-envelope"></i> shayanlakhani66@gmail.com
+        </a>
+        <div class="top-bar-socials">
+          <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header" id="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Shayan Restaurant Home">
+        <div class="logo-icon-wrap">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Shayan</span>
+          <span class="logo-subtitle">Restaurant &amp; Grill</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#popular" class="nav-link">Popular</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action Buttons -->
+      <div class="header-actions">
+        <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-order-btn">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Order Now</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="hamburger-btn" id="mobileMenuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-inner">
+        <div class="mobile-drawer-header">
+          <div class="logo-text-wrap">
+            <span class="logo-title">Shayan</span>
+            <span class="logo-subtitle">Restaurant</span>
+          </div>
+          <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <ul class="mobile-nav-list">
+          <li><a href="#hero" class="mobile-nav-link active">Home</a></li>
+          <li><a href="#about" class="mobile-nav-link">About Us</a></li>
+          <li><a href="#popular" class="mobile-nav-link">Popular Dishes</a></li>
+          <li><a href="#menu" class="mobile-nav-link">Our Full Menu</a></li>
+          <li><a href="#why-us" class="mobile-nav-link">Why Choose Us</a></li>
+          <li><a href="#gallery" class="mobile-nav-link">Food Gallery</a></li>
+          <li><a href="#reviews" class="mobile-nav-link">Customer Reviews</a></li>
+          <li><a href="#contact" class="mobile-nav-link">Contact &amp; Location</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">
+            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+          </a>
+          <div class="drawer-contact-info">
+            <p><i class="fa-solid fa-phone"></i> 03092273955</p>
+            <p><i class="fa-solid fa-envelope"></i> shayanlakhani66@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge reveal-fade">
+            <span class="badge-sparkle"><i class="fa-solid fa-crown"></i></span>
+            <span>Royal Dining &amp; Authentic Culinary Heritage</span>
+          </div>
+          
+          <h1 class="hero-title reveal-fade">
+            Experience the <span class="highlight-gold">Art of Flavor</span> at Shayan Restaurant
+          </h1>
+          
+          <p class="hero-desc reveal-fade">
+            Indulge in an exquisite feast of mouth-watering Biryanis, sizzling Karahis, slow-smoked BBQ, artisan Pizzas, and gourmet Burgers. Prepared fresh daily with premium ingredients and unmatched culinary passion.
+          </p>
+
+          <div class="hero-cta-group reveal-fade">
+            <a href="#menu" class="btn btn-gold btn-lg">
+              <i class="fa-solid fa-book-open"></i>
+              <span>View Our Menu</span>
+            </a>
+            <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Order on WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Hero Highlights / Stats -->
+          <div class="hero-stats reveal-fade">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Fresh &amp; Halal</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">30 Min</span>
+                <span class="stat-label">Express Delivery</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">4.9 / 5</span>
+                <span class="stat-label">Customer Rating</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <a href="#popular" class="scroll-indicator" aria-label="Scroll to popular dishes">
+        <span class="mouse-icon">
+          <span class="wheel"></span>
+        </span>
+        <span class="scroll-text">Scroll Down</span>
+      </a>
+    </section>
+
+    <!-- POPULAR DISHES SECTION -->
+    <section class="section-padding popular-section" id="popular">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-sub-badge"><i class="fa-solid fa-fire-flame-curved"></i> Chef's Recommendations</span>
+          <h2 class="section-title">Our <span class="highlight-gold">Popular Dishes</span></h2>
+          <p class="section-subtitle">
+            Crafted to perfection with secret family spice blends and time-honored cooking traditions.
+          </p>
+          <div class="gold-divider">
+            <span class="divider-icon"><i class="fa-solid fa-utensils"></i></span>
+          </div>
+        </div>
+
+        <div class="dishes-grid" id="popularDishesGrid">
+          <!-- Dish 1: Chicken Biryani -->
+          <div class="dish-card reveal-card">
+            <div class="dish-card-header">
+              <div class="dish-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" alt="Royal Chicken Biryani" loading="lazy" />
+                <div class="dish-badge badge-bestseller"><i class="fa-solid fa-trophy"></i> Best Seller</div>
+                <div class="dish-category-tag">Pakistani</div>
+              </div>
+            </div>
+            <div class="dish-card-body">
+              <div class="dish-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-val">(5.0)</span>
+              </div>
+              <h3 class="dish-title">Royal Chicken Biryani</h3>
+              <p class="dish-desc">
+                Fragrant long-grain basmati rice layered with succulent marinated chicken, saffron, potatoes, and signature aromatic herbs.
+              </p>
+              <div class="dish-meta">
+                <span class="dish-spice"><i class="fa-solid fa-pepper-hot"></i> Mild Spice</span>
+                <span class="dish-portion"><i class="fa-solid fa-user-group"></i> 1-2 Servings</span>
+              </div>
+              <div class="dish-card-footer">
+                <div class="dish-price-wrap">
+                  <span class="currency">Rs.</span>
+                  <span class="amount">650</span>
+                </div>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20order%20Royal%20Chicken%20Biryani%20(Rs.%20650)." target="_blank" rel="noopener noreferrer" class="btn btn-order" aria-label="Order Royal Chicken Biryani on WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i> Order
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 2: Chicken Karahi -->
+          <div class="dish-card reveal-card">
+            <div class="dish-card-header">
+              <div class="dish-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80" alt="Desi Butter Chicken Karahi" loading="lazy" />
+                <div class="dish-badge badge-special"><i class="fa-solid fa-star"></i> Chef's Choice</div>
+                <div class="dish-category-tag">Pakistani</div>
+              </div>
+            </div>
+            <div class="dish-card-body">
+              <div class="dish-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="rating-val">(4.9)</span>
+              </div>
+              <h3 class="dish-title">Desi Butter Chicken Karahi</h3>
+              <p class="dish-desc">
+                Tender chicken simmered in a rich, buttery tomato gravy with fresh ginger, green chilies, and hand-ground black pepper.
+              </p>
+              <div class="dish-meta">
+                <span class="dish-spice"><i class="fa-solid fa-pepper-hot"></i> Medium Spice</span>
+                <span class="dish-portion"><i class="fa-solid fa-bowl-food"></i> Half / Full</span>
+              </div>
+              <div class="dish-card-footer">
+                <div class="dish-price-wrap">
+                  <span class="currency">Rs.</span>
+                  <span class="amount">1,450</span>
+                </div>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20order%20Desi%20Butter%20Chicken%20Karahi%20(Rs.%201450)." target="_blank" rel="noopener noreferrer" class="btn btn-order" aria-label="Order Desi Butter Chicken Karahi on WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i> Order
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 3: Zinger Burger -->
+          <div class="dish-card reveal-card">
+            <div class="dish-card-header">
+              <div class="dish-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Crispy Gourmet Zinger Burger" loading="lazy" />
+                <div class="dish-badge badge-trending"><i class="fa-solid fa-bolt"></i> Popular</div>
+                <div class="dish-category-tag">Burgers</div>
+              </div>
+            </div>
+            <div class="dish-card-body">
+              <div class="dish-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-val">(5.0)</span>
+              </div>
+              <h3 class="dish-title">Crispy Gourmet Zinger</h3>
+              <p class="dish-desc">
+                Ultra-crispy double-coated chicken breast fillet, spicy mayo, iceberg lettuce, and melted cheese on a toasted brioche bun.
+              </p>
+              <div class="dish-meta">
+                <span class="dish-spice"><i class="fa-solid fa-fire"></i> Crispy &amp; Spicy</span>
+                <span class="dish-portion"><i class="fa-solid fa-burger"></i> With Fries</span>
+              </div>
+              <div class="dish-card-footer">
+                <div class="dish-price-wrap">
+                  <span class="currency">Rs.</span>
+                  <span class="amount">590</span>
+                </div>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20order%20Crispy%20Gourmet%20Zinger%20(Rs.%20590)." target="_blank" rel="noopener noreferrer" class="btn btn-order" aria-label="Order Crispy Gourmet Zinger on WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i> Order
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 4: BBQ Platter -->
+          <div class="dish-card reveal-card">
+            <div class="dish-card-header">
+              <div class="dish-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Grand Royal BBQ Platter" loading="lazy" />
+                <div class="dish-badge badge-bestseller"><i class="fa-solid fa-crown"></i> Royal Feast</div>
+                <div class="dish-category-tag">BBQ</div>
+              </div>
+            </div>
+            <div class="dish-card-body">
+              <div class="dish-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-val">(5.0)</span>
+              </div>
+              <h3 class="dish-title">Grand Royal BBQ Platter</h3>
+              <p class="dish-desc">
+                A charcoal-grilled feast featuring Chicken Malai Boti, Spicy Beef Seekh Kababs, Tandoori Tikka Boti, and mint raita with hot naans.
+              </p>
+              <div class="dish-meta">
+                <span class="dish-spice"><i class="fa-solid fa-fire-burner"></i> Charcoal Smoked</span>
+                <span class="dish-portion"><i class="fa-solid fa-people-group"></i> 3-4 Persons</span>
+              </div>
+              <div class="dish-card-footer">
+                <div class="dish-price-wrap">
+                  <span class="currency">Rs.</span>
+                  <span class="amount">2,350</span>
+                </div>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20order%20Grand%20Royal%20BBQ%20Platter%20(Rs.%202350)." target="_blank" rel="noopener noreferrer" class="btn btn-order" aria-label="Order BBQ Platter on WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i> Order
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 5: Chicken Pizza -->
+          <div class="dish-card reveal-card">
+            <div class="dish-card-header">
+              <div class="dish-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Chicken Supreme Pizza" loading="lazy" />
+                <div class="dish-badge badge-trending"><i class="fa-solid fa-pizza-slice"></i> Cheesy</div>
+                <div class="dish-category-tag">Pizza</div>
+              </div>
+            </div>
+            <div class="dish-card-body">
+              <div class="dish-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="rating-val">(4.8)</span>
+              </div>
+              <h3 class="dish-title">Chicken Supreme Pizza</h3>
+              <p class="dish-desc">
+                Hand-tossed artisan crust topped with seasoned grilled chicken chunks, mozzarella &amp; cheddar cheese, bell peppers, olives, and mushrooms.
+              </p>
+              <div class="dish-meta">
+                <span class="dish-spice"><i class="fa-solid fa-cheese"></i> 100% Real Cheese</span>
+                <span class="dish-portion"><i class="fa-solid fa-expand"></i> Large 13-Inch</span>
+              </div>
+              <div class="dish-card-footer">
+                <div class="dish-price-wrap">
+                  <span class="currency">Rs.</span>
+                  <span class="amount">1,550</span>
+                </div>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20order%20Chicken%20Supreme%20Pizza%20(Rs.%201550)." target="_blank" rel="noopener noreferrer" class="btn btn-order" aria-label="Order Chicken Supreme Pizza on WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i> Order
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dish 6: Garlic Naan -->
+          <div class="dish-card reveal-card">
+            <div class="dish-card-header">
+              <div class="dish-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=800&q=80" alt="Fresh Butter Garlic Naan" loading="lazy" />
+                <div class="dish-badge badge-special"><i class="fa-solid fa-bread-slice"></i> Tandoor Fresh</div>
+                <div class="dish-category-tag">Pakistani</div>
+              </div>
+            </div>
+            <div class="dish-card-body">
+              <div class="dish-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-val">(5.0)</span>
+              </div>
+              <h3 class="dish-title">Fresh Butter Garlic Naan</h3>
+              <p class="dish-desc">
+                Clay-oven baked fluffy flatbread brushed with pure desi ghee, crushed golden garlic, and freshly chopped coriander leaves.
+              </p>
+              <div class="dish-meta">
+                <span class="dish-spice"><i class="fa-solid fa-leaf"></i> Vegetarian</span>
+                <span class="dish-portion"><i class="fa-solid fa-fire"></i> Hot from Tandoor</span>
+              </div>
+              <div class="dish-card-footer">
+                <div class="dish-price-wrap">
+                  <span class="currency">Rs.</span>
+                  <span class="amount">140</span>
+                </div>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20order%20Fresh%20Butter%20Garlic%20Naan%20(Rs.%20140)." target="_blank" rel="noopener noreferrer" class="btn btn-order" aria-label="Order Garlic Naan on WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i> Order
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4 reveal-fade">
+          <a href="#menu" class="btn btn-gold btn-outline">
+            <span>Explore Full Interactive Menu</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="section-padding about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <!-- About Images Collage -->
+          <div class="about-visuals reveal-left">
+            <div class="about-img-main">
+              <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=900&q=80" alt="Executive Chef Preparing Food at Shayan Restaurant" loading="lazy" />
+            </div>
+            <div class="about-img-sub">
+              <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Fine Dining Experience" loading="lazy" />
+            </div>
+            <div class="about-experience-badge">
+              <span class="badge-num">15+</span>
+              <span class="badge-txt">Years of Culinary<br />Mastery</span>
+            </div>
+          </div>
+
+          <!-- About Text Content -->
+          <div class="about-content reveal-right">
+            <span class="section-sub-badge"><i class="fa-solid fa-heart"></i> Our Story &amp; Passion</span>
+            <h2 class="section-title">Welcome to <span class="highlight-gold">Shayan Restaurant</span></h2>
+            <p class="about-lead">
+              Where centuries of traditional culinary recipes meet contemporary gastronomic perfection.
+            </p>
+            <p class="about-body">
+              Founded on a steadfast passion for authentic taste and hospitality, Shayan Restaurant has grown into a premier culinary destination for food lovers. We celebrate the richness of traditional spices, slow-cooked gravies, smoky charcoal BBQ, and modern favorites like artisan pizzas and handcrafted gourmet burgers.
+            </p>
+            <p class="about-body">
+              Our master chefs meticulously source 100% fresh, premium halal meats and farm-grown vegetables every morning. We never compromise on hygiene, authenticity, or service speed—ensuring every bite you taste is a royal celebration.
+            </p>
+
+            <!-- Feature Pills -->
+            <div class="about-features-grid">
+              <div class="about-feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-seedling"></i></div>
+                <div>
+                  <h4>100% Fresh Ingredients</h4>
+                  <p>Farm-fresh vegetables &amp; premium cuts</p>
+                </div>
+              </div>
+              <div class="about-feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
+                <div>
+                  <h4>Secret Spice Recipes</h4>
+                  <p>Hand-ground spices for unforgettable aroma</p>
+                </div>
+              </div>
+              <div class="about-feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-award"></i></div>
+                <div>
+                  <h4>Certified Hygiene</h4>
+                  <p>Spotless kitchens &amp; strict quality standards</p>
+                </div>
+              </div>
+              <div class="about-feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                <div>
+                  <h4>Customer Satisfaction</h4>
+                  <p>Over 50,000+ happy diners served</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-cta-row">
+              <a href="#contact" class="btn btn-gold">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Reserve a Table</span>
+              </a>
+              <div class="chef-signature">
+                <span class="signature-text">Shayan Lakhani</span>
+                <span class="signature-title">Founder &amp; Master Culinary Director</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="section-padding why-us-section" id="why-us">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-sub-badge"><i class="fa-solid fa-gem"></i> Our Core Values</span>
+          <h2 class="section-title">Why Choose <span class="highlight-gold">Shayan Restaurant?</span></h2>
+          <p class="section-subtitle">
+            We go beyond just serving meals; we craft memorable gastronomic experiences for you and your loved ones.
+          </p>
+          <div class="gold-divider">
+            <span class="divider-icon"><i class="fa-solid fa-crown"></i></span>
+          </div>
+        </div>
+
+        <div class="why-us-grid">
+          <!-- Card 1 -->
+          <div class="why-card reveal-card">
+            <div class="why-icon-box">
+              <span class="emoji-icon">🍽️</span>
+            </div>
+            <h3 class="why-title">Delicious Food</h3>
+            <p class="why-desc">
+              Unrivaled flavors with a balance of rich heritage spices, authentic marinations, and exquisite plating that satisfies your cravings.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="why-card reveal-card">
+            <div class="why-icon-box">
+              <span class="emoji-icon">👨‍🍳</span>
+            </div>
+            <h3 class="why-title">Professional Chefs</h3>
+            <p class="why-desc">
+              Our culinary team brings decades of high-end kitchen experience, precision grilling, and mastery in authentic Desi and Continental cooking.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="why-card reveal-card">
+            <div class="why-icon-box">
+              <span class="emoji-icon">🥗</span>
+            </div>
+            <h3 class="why-title">Fresh Ingredients</h3>
+            <p class="why-desc">
+              We insist on daily farm-sourced organic produce, 100% fresh Halal certified meat, and cold-pressed cooking oils without artificial preservatives.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="why-card reveal-card">
+            <div class="why-icon-box">
+              <span class="emoji-icon">⚡</span>
+            </div>
+            <h3 class="why-title">Fast Service</h3>
+            <p class="why-desc">
+              Prompt dine-in table hospitality and lightning-fast WhatsApp delivery that brings sizzling hot food to your doorstep in 30 minutes.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="why-card reveal-card">
+            <div class="why-icon-box">
+              <span class="emoji-icon">⭐</span>
+            </div>
+            <h3 class="why-title">Quality Experience</h3>
+            <p class="why-desc">
+              Elegant ambiance, family-friendly seating, attentive staff, and a welcoming luxury atmosphere that keeps you coming back.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="why-card reveal-card">
+            <div class="why-icon-box">
+              <span class="emoji-icon">💰</span>
+            </div>
+            <h3 class="why-title">Exceptional Value</h3>
+            <p class="why-desc">
+              Generous portion sizes, irresistible combo platters, and transparent pricing designed to provide five-star luxury at fair rates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL INTERACTIVE MENU SECTION -->
+    <section class="section-padding menu-section" id="menu">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-sub-badge"><i class="fa-solid fa-bars-staggered"></i> Discover Our Flavors</span>
+          <h2 class="section-title">Interactive <span class="highlight-gold">Restaurant Menu</span></h2>
+          <p class="section-subtitle">
+            Browse our full menu by category or search your favorite dish. Click "Order" to instantly connect on WhatsApp!
+          </p>
+          <div class="gold-divider">
+            <span class="divider-icon"><i class="fa-solid fa-utensils"></i></span>
+          </div>
+        </div>
+
+        <!-- Menu Search & Filter Toolbar -->
+        <div class="menu-toolbar reveal-fade">
+          <!-- Search Bar -->
+          <div class="menu-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="menuSearchInput" placeholder="Search dishes (e.g. Biryani, Burger, Karahi...)" aria-label="Search dishes in menu" />
+            <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear Search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Category Buttons Tabs -->
+          <div class="menu-categories" id="menuCategories" role="tablist">
+            <button class="menu-cat-btn active" data-category="all" role="tab" aria-selected="true">
+              <i class="fa-solid fa-utensils"></i> All Dishes
+            </button>
+            <button class="menu-cat-btn" data-category="pakistani" role="tab" aria-selected="false">
+              <i class="fa-solid fa-bowl-rice"></i> Pakistani
+            </button>
+            <button class="menu-cat-btn" data-category="bbq" role="tab" aria-selected="false">
+              <i class="fa-solid fa-fire"></i> BBQ
+            </button>
+            <button class="menu-cat-btn" data-category="burgers" role="tab" aria-selected="false">
+              <i class="fa-solid fa-burger"></i> Burgers
+            </button>
+            <button class="menu-cat-btn" data-category="pizza" role="tab" aria-selected="false">
+              <i class="fa-solid fa-pizza-slice"></i> Pizza
+            </button>
+            <button class="menu-cat-btn" data-category="fastfood" role="tab" aria-selected="false">
+              <i class="fa-solid fa-drumstick-bite"></i> Fast Food
+            </button>
+            <button class="menu-cat-btn" data-category="drinks" role="tab" aria-selected="false">
+              <i class="fa-solid fa-martini-glass-citrus"></i> Drinks
+            </button>
+            <button class="menu-cat-btn" data-category="desserts" role="tab" aria-selected="false">
+              <i class="fa-solid fa-ice-cream"></i> Desserts
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu Active Filter Info & Item Count -->
+        <div class="menu-status-bar">
+          <span id="menuItemCount">Showing 26 dishes</span>
+          <span class="menu-tip"><i class="fa-solid fa-circle-info"></i> All dishes freshly prepared on order</span>
+        </div>
+
+        <!-- Menu Items Grid Container -->
+        <div class="menu-grid" id="menuGrid">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+        <!-- No Results Fallback -->
+        <div class="no-results" id="noResults" style="display: none;">
+          <div class="no-results-icon"><i class="fa-solid fa-utensils-slash"></i></div>
+          <h3>No matching dishes found</h3>
+          <p>Try searching for something else or browse all categories.</p>
+          <button class="btn btn-gold btn-sm" id="resetFilterBtn">Show All Dishes</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOD GALLERY SECTION WITH LIGHTBOX -->
+    <section class="section-padding gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-sub-badge"><i class="fa-solid fa-camera-retro"></i> Visual Feast</span>
+          <h2 class="section-title">Food &amp; Dining <span class="highlight-gold">Gallery</span></h2>
+          <p class="section-subtitle">
+            Take a visual tour of our culinary creations and warm restaurant atmosphere. Click any photo for full view.
+          </p>
+          <div class="gold-divider">
+            <span class="divider-icon"><i class="fa-solid fa-image"></i></span>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Gallery Item 1 -->
+          <div class="gallery-item reveal-card" data-index="0" data-title="Royal Saffron Biryani" data-category="Pakistani Cuisine" data-img="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80" alt="Royal Saffron Biryani" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">Pakistani Cuisine</span>
+              <h3 class="gallery-item-title">Royal Saffron Biryani</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 2 -->
+          <div class="gallery-item reveal-card" data-index="1" data-title="Sizzling Charcoal BBQ Feast" data-category="BBQ Specialties" data-img="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=700&q=80" alt="Sizzling Charcoal BBQ Feast" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">BBQ Specialties</span>
+              <h3 class="gallery-item-title">Sizzling Charcoal BBQ Feast</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 3 -->
+          <div class="gallery-item reveal-card" data-index="2" data-title="Artisan Stone-Baked Pizza" data-category="Italian &amp; Crusts" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80" alt="Artisan Stone-Baked Pizza" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">Italian &amp; Crusts</span>
+              <h3 class="gallery-item-title">Artisan Stone-Baked Pizza</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 4 -->
+          <div class="gallery-item reveal-card" data-index="3" data-title="Crispy Double Gourmet Burger" data-category="Burgers &amp; Fast Food" data-img="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Crispy Double Gourmet Burger" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">Burgers &amp; Fast Food</span>
+              <h3 class="gallery-item-title">Crispy Double Gourmet Burger</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 5 -->
+          <div class="gallery-item reveal-card" data-index="4" data-title="Desi Handi &amp; Karahi" data-category="Chef Special" data-img="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=700&q=80" alt="Desi Handi &amp; Karahi" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">Chef Special</span>
+              <h3 class="gallery-item-title">Desi Handi &amp; Karahi</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 6 -->
+          <div class="gallery-item reveal-card" data-index="5" data-title="Warm Lava Sizzling Brownie" data-category="Signature Desserts" data-img="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80" alt="Warm Lava Sizzling Brownie" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">Signature Desserts</span>
+              <h3 class="gallery-item-title">Warm Lava Sizzling Brownie</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 7 -->
+          <div class="gallery-item reveal-card" data-index="6" data-title="Chilled Mint Margarita" data-category="Mocktails &amp; Drinks" data-img="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=700&q=80" alt="Chilled Mint Margarita" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">Mocktails &amp; Drinks</span>
+              <h3 class="gallery-item-title">Chilled Mint Margarita</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 8 -->
+          <div class="gallery-item reveal-card" data-index="7" data-title="Luxury Dining Atmosphere" data-category="Restaurant Ambience" data-img="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Luxury Dining Atmosphere" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-category">Restaurant Ambience</span>
+              <h3 class="gallery-item-title">Luxury Dining Atmosphere</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="lightbox-overlay" id="lightboxOverlay"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close Lightbox">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button class="lightbox-nav-btn prev-btn" id="lightboxPrevBtn" aria-label="Previous Image">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav-btn next-btn" id="lightboxNextBtn" aria-label="Next Image">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="lightbox-media">
+          <img src="" alt="" id="lightboxImg" />
+        </div>
+        <div class="lightbox-caption">
+          <div>
+            <span class="lightbox-cat" id="lightboxCat">Category</span>
+            <h3 class="lightbox-title" id="lightboxTitle">Image Title</h3>
+          </div>
+          <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" id="lightboxOrderBtn">
+            <i class="fa-brands fa-whatsapp"></i> Order This Dish
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUSTOMER REVIEWS / TESTIMONIALS SECTION -->
+    <section class="section-padding reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-sub-badge"><i class="fa-solid fa-comments"></i> Guest Experiences</span>
+          <h2 class="section-title">What Our <span class="highlight-gold">Customers Say</span></h2>
+          <p class="section-subtitle">
+            Loved by thousands of foodies, families, and discerning diners across the city.
+          </p>
+          <div class="gold-divider">
+            <span class="divider-icon"><i class="fa-solid fa-star"></i></span>
+          </div>
+        </div>
+
+        <!-- Reviews Slider Container -->
+        <div class="reviews-slider-wrapper reveal-fade">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Review 1 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">
+                  "The Biryani and Butter Karahi at Shayan Restaurant are truly out of this world! The spices are authentic, the chicken is super tender, and ordering through WhatsApp was so effortless. Delivered sizzling hot in under 30 minutes!"
+                </p>
+                <div class="review-user-info">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Sarah Tariq" class="user-avatar" loading="lazy" />
+                  <div>
+                    <h4 class="user-name">Sarah Tariq</h4>
+                    <span class="user-tag"><i class="fa-solid fa-circle-check"></i> Verified Foodie</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">
+                  "We ordered the Grand Royal BBQ Platter for a family dinner. The Malai Boti melted in our mouths, and the Beef Seekh Kababs had the perfect smoky aroma. Exceptional quality, clean packaging, and outstanding customer service!"
+                </p>
+                <div class="review-user-info">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Hamza Siddiqui" class="user-avatar" loading="lazy" />
+                  <div>
+                    <h4 class="user-name">Hamza Siddiqui</h4>
+                    <span class="user-tag"><i class="fa-solid fa-circle-check"></i> Regular Patron</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="review-text">
+                  "Their Crispy Gourmet Zinger and Supreme Pizza rival the top international franchises. The cheese pull on the pizza was unreal! Shayan Restaurant has quickly become our family's favorite weekend dining spot."
+                </p>
+                <div class="review-user-info">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Fatima Noor" class="user-avatar" loading="lazy" />
+                  <div>
+                    <h4 class="user-name">Fatima Noor</h4>
+                    <span class="user-tag"><i class="fa-solid fa-circle-check"></i> Verified Diner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">
+                  "Spectacular hospitality! We hosted a corporate party for 20 people and everything from table decor to the food pacing was 5 stars. The sizzling brownie dessert was the crown on top. Highly recommended!"
+                </p>
+                <div class="review-user-info">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Bilal Ahmed" class="user-avatar" loading="lazy" />
+                  <div>
+                    <h4 class="user-name">Bilal Ahmed</h4>
+                    <span class="user-tag"><i class="fa-solid fa-circle-check"></i> Corporate Host</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls">
+            <button class="slider-arrow prev" id="reviewPrevBtn" aria-label="Previous Review">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="slider-dots" id="reviewDots"></div>
+            <button class="slider-arrow next" id="reviewNextBtn" aria-label="Next Review">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT, OPENING HOURS & RESERVATION SECTION -->
+    <section class="section-padding contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-sub-badge"><i class="fa-solid fa-envelope-open-text"></i> Get in Touch</span>
+          <h2 class="section-title">Contact &amp; <span class="highlight-gold">Reservations</span></h2>
+          <p class="section-subtitle">
+            Have a question, catering inquiry, or want to book a table? Reach out to us directly or drop a message below.
+          </p>
+          <div class="gold-divider">
+            <span class="divider-icon"><i class="fa-solid fa-phone"></i></span>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Column: Contact Cards & Info -->
+          <div class="contact-info-col reveal-left">
+            <!-- WhatsApp Highlight Card -->
+            <div class="contact-card whatsapp-highlight-card">
+              <div class="card-icon-circle whatsapp-circle">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div class="card-info">
+                <h3>Direct WhatsApp Ordering</h3>
+                <p>Order your favorite meals or inquire instantly on WhatsApp.</p>
+                <span class="phone-display">03092273955</span>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-full mt-2">
+                  <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="contact-card">
+              <div class="card-icon-circle">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="card-info">
+                <h3>Official Email</h3>
+                <p>For catering, corporate events, feedback, or general support:</p>
+                <a href="mailto:shayanlakhani66@gmail.com" class="email-link">
+                  shayanlakhani66@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Opening Hours Card -->
+            <div class="contact-card opening-hours-card">
+              <div class="card-icon-circle gold-circle">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div class="card-info">
+                <div class="hours-header">
+                  <h3>Restaurant Opening Hours</h3>
+                  <span class="badge-live-status" id="hoursCardStatus">Open Now</span>
+                </div>
+                <div class="hours-schedule">
+                  <div class="schedule-row">
+                    <span>Monday – Thursday</span>
+                    <span class="hours-val">12:00 PM – 12:00 AM</span>
+                  </div>
+                  <div class="schedule-row">
+                    <span>Friday – Sunday</span>
+                    <span class="hours-val">12:00 PM – 12:00 AM</span>
+                  </div>
+                </div>
+                <div class="hours-note">
+                  <i class="fa-solid fa-motorcycle"></i> WhatsApp Home Delivery Available Daily: 12:00 PM – 11:30 PM
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Validated Contact / Reservation Form -->
+          <div class="contact-form-col reveal-right">
+            <div class="contact-form-card">
+              <div class="form-header">
+                <h3>Send a Message or Book a Table</h3>
+                <p>Fill in your details and we will respond promptly.</p>
+              </div>
+
+              <form id="contactForm" novalidate>
+                <!-- Form Status Alert -->
+                <div class="form-alert" id="formAlert" style="display: none;"></div>
+
+                <div class="form-group-row">
+                  <!-- Name Field -->
+                  <div class="form-group">
+                    <label for="userName"><i class="fa-regular fa-user"></i> Full Name <span class="required">*</span></label>
+                    <input type="text" id="userName" name="userName" placeholder="e.g. Shayan Ahmed" required />
+                    <span class="field-error" id="nameError"></span>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="form-group">
+                    <label for="userEmail"><i class="fa-regular fa-envelope"></i> Email Address <span class="required">*</span></label>
+                    <input type="email" id="userEmail" name="userEmail" placeholder="e.g. name@example.com" required />
+                    <span class="field-error" id="emailError"></span>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <!-- Phone Number Field -->
+                  <div class="form-group">
+                    <label for="userPhone"><i class="fa-solid fa-phone"></i> Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="userPhone" name="userPhone" placeholder="e.g. 03092273955" required />
+                    <span class="field-error" id="phoneError"></span>
+                  </div>
+
+                  <!-- Inquiry Type -->
+                  <div class="form-group">
+                    <label for="inquiryType"><i class="fa-solid fa-tag"></i> Inquiry Type</label>
+                    <select id="inquiryType" name="inquiryType">
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Table Reservation">Table Reservation</option>
+                      <option value="Home Delivery Order">Home Delivery Order</option>
+                      <option value="Event / Catering">Event / Catering Booking</option>
+                      <option value="Feedback">Feedback / Suggestion</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                  <label for="userMessage"><i class="fa-regular fa-message"></i> Your Message / Order Details <span class="required">*</span></label>
+                  <textarea id="userMessage" name="userMessage" rows="4" placeholder="How can we help you? (e.g. Table for 4 on Friday at 8 PM, or order inquiry)" required></textarea>
+                  <span class="field-error" id="messageError"></span>
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="form-actions-row">
+                  <button type="submit" class="btn btn-gold btn-full" id="submitFormBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Send Message</span>
+                  </button>
+                  <button type="button" class="btn btn-whatsapp btn-full" id="sendViaWhatsAppBtn">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Send via WhatsApp</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANT LOCATION & MAP SECTION -->
+    <section class="section-padding location-section" id="location">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-sub-badge"><i class="fa-solid fa-location-dot"></i> Visit Us</span>
+          <h2 class="section-title">Restaurant <span class="highlight-gold">Location</span></h2>
+          <p class="section-subtitle">
+            Easily accessible with valet parking, serene family seating, and a warm dining atmosphere.
+          </p>
+          <div class="gold-divider">
+            <span class="divider-icon"><i class="fa-solid fa-map-pin"></i></span>
+          </div>
+        </div>
+
+        <div class="location-card reveal-fade">
+          <div class="location-details">
+            <div class="loc-item">
+              <div class="loc-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div>
+                <h4>Address</h4>
+                <p>Shayan Restaurant, Main Commercial Avenue, Food Street District, Pakistan</p>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-icon"><i class="fa-solid fa-square-parking"></i></div>
+              <div>
+                <h4>Parking &amp; Facilities</h4>
+                <p>Complimentary Valet Parking • Prayer Area • Family Dining Hall • High-Speed Wi-Fi</p>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-icon"><i class="fa-solid fa-compass"></i></div>
+              <div>
+                <h4>Get Directions</h4>
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm mt-1">
+                  <i class="fa-solid fa-location-arrow"></i> Open in Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Embedded Map -->
+          <div class="map-embed-wrapper">
+            <iframe 
+              title="Shayan Restaurant Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115809.52981512403!2d66.97491108928062!3d24.896338421869818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f445e5691da!2sKarachi%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+              width="100%" 
+              height="340" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-col brand-col">
+          <a href="#hero" class="brand-logo footer-logo">
+            <div class="logo-icon-wrap">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="logo-text-wrap">
+              <span class="logo-title">Shayan</span>
+              <span class="logo-subtitle">Restaurant &amp; Grill</span>
+            </div>
+          </a>
+          <p class="footer-about-text">
+            Crafting royal culinary experiences with signature Pakistani dishes, charcoal-fired BBQ, artisan pizzas, and handcrafted burgers. Pure taste in every bite.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" aria-label="Facebook" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram" class="social-icon ig"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok" class="social-icon tt"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="#popular"><i class="fa-solid fa-chevron-right"></i> Popular Dishes</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-chevron-right"></i> Food Menu</a></li>
+            <li><a href="#why-us"><i class="fa-solid fa-chevron-right"></i> Why Choose Us</a></li>
+            <li><a href="#gallery"><i class="fa-solid fa-chevron-right"></i> Photo Gallery</a></li>
+            <li><a href="#reviews"><i class="fa-solid fa-chevron-right"></i> Customer Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Food Categories -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Specialities</h4>
+          <ul class="footer-links-list">
+            <li><a href="#menu"><i class="fa-solid fa-chevron-right"></i> Royal Biryani &amp; Pulao</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-chevron-right"></i> Desi Butter Karahi &amp; Handi</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-chevron-right"></i> Sizzling BBQ Platters</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-chevron-right"></i> Crispy Zinger Burgers</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-chevron-right"></i> Stone-Baked Pizzas</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-chevron-right"></i> Hot Sizzling Brownies</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Hours -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Info</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-brands fa-whatsapp contact-icon-gold"></i>
+              <div>
+                <span class="footer-contact-label">WhatsApp Orders:</span>
+                <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">03092273955</a>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope contact-icon-gold"></i>
+              <div>
+                <span class="footer-contact-label">Email:</span>
+                <a href="mailto:shayanlakhani66@gmail.com">shayanlakhani66@gmail.com</a>
+              </div>
+            </li>
+            <li>
+              <i class="fa-regular fa-clock contact-icon-gold"></i>
+              <div>
+                <span class="footer-contact-label">Hours:</span>
+                <span>Monday – Sunday: 12:00 PM – 12:00 AM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="copyright-text">
+          &copy; 2026 <span class="highlight-gold">Shayan Restaurant</span>. All Rights Reserved. Crafted with Passion.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#privacy">Privacy Policy</a>
+          <span class="sep">•</span>
+          <a href="#terms">Terms of Service</a>
+          <span class="sep">•</span>
+          <a href="#contact">Table Booking</a>
+          <span class="sep">•</span>
+          <a href="admin-login.html" target="_blank" style="color: var(--color-primary); font-weight: 700;"><i class="fa-solid fa-lock"></i> Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/923092273955?text=Hello!%20I%20would%20like%20to%20place%20an%20order." 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="floating-whatsapp-btn" 
+     id="floatingWhatsApp" 
+     aria-label="Chat and Order on WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="floating-tooltip">Order on WhatsApp</span>
+  </a>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- TOAST NOTIFICATION POPUP -->
+  <div class="toast-notification" id="toastNotification" role="alert" aria-live="assertive">
+    <div class="toast-icon" id="toastIcon"><i class="fa-solid fa-check"></i></div>
+    <div class="toast-message" id="toastMessage">Message sent successfully!</div>
+  </div>
+
+  <!-- JavaScript Script File -->
+  <script src="script.js"></script>
+</body>
+</html>
